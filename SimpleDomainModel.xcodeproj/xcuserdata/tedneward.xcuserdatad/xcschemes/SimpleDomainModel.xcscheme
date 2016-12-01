@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38D6ACC31DB72AE200597C7B"
-               BuildableName = "ext-domain-model"
-               BlueprintName = "ext-domain-model"
-               ReferencedContainer = "container:ext-domain-model.xcodeproj">
+               BlueprintIdentifier = "FE6891131CB5D8E40018C340"
+               BuildableName = "SimpleDomainModel"
+               BlueprintName = "SimpleDomainModel"
+               ReferencedContainer = "container:SimpleDomainModel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,24 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FE6891211CB5D90B0018C340"
+               BuildableName = "SimpleDomainModelTests.xctest"
+               BlueprintName = "SimpleDomainModelTests"
+               ReferencedContainer = "container:SimpleDomainModel.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38D6ACC31DB72AE200597C7B"
-            BuildableName = "ext-domain-model"
-            BlueprintName = "ext-domain-model"
-            ReferencedContainer = "container:ext-domain-model.xcodeproj">
+            BlueprintIdentifier = "FE6891131CB5D8E40018C340"
+            BuildableName = "SimpleDomainModel"
+            BlueprintName = "SimpleDomainModel"
+            ReferencedContainer = "container:SimpleDomainModel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +65,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38D6ACC31DB72AE200597C7B"
-            BuildableName = "ext-domain-model"
-            BlueprintName = "ext-domain-model"
-            ReferencedContainer = "container:ext-domain-model.xcodeproj">
+            BlueprintIdentifier = "FE6891131CB5D8E40018C340"
+            BuildableName = "SimpleDomainModel"
+            BlueprintName = "SimpleDomainModel"
+            ReferencedContainer = "container:SimpleDomainModel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +84,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38D6ACC31DB72AE200597C7B"
-            BuildableName = "ext-domain-model"
-            BlueprintName = "ext-domain-model"
-            ReferencedContainer = "container:ext-domain-model.xcodeproj">
+            BlueprintIdentifier = "FE6891131CB5D8E40018C340"
+            BuildableName = "SimpleDomainModel"
+            BlueprintName = "SimpleDomainModel"
+            ReferencedContainer = "container:SimpleDomainModel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

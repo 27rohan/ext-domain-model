@@ -41,13 +41,10 @@ extension Double {
 ////////////////////////////////////
 // Money
 //
-public struct Money {
+public struct Money: CustomStringConvertible, Mathematics {
   public var amount : Int
   public var currency : String
-  public enum Currency: String {
-        case USD = "USD", EUR = "EUR", CAN = "CAN", GBP = "GBP", YEN = "YEN"
-    }
-    
+
     internal var description: String {
         get { return "\(currency)\(amount).0" }
     }

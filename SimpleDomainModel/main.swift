@@ -32,10 +32,10 @@ protocol Mathematics {
 }
 
 extension Double {
-    var USD: Money { return Money(amt: Int(self), currency: "USD") }
-    var EUR: Money { return Money(amt: Int(self), currency: "EUR") }
-    var GBP: Money { return Money(amt: Int(self), currency: "GBP") }
-    var YEN: Money { return Money(amt: Int(self), currency: "YEN") }
+    var USD: Money { return Money(amount: Int(self), currency: "USD") }
+    var EUR: Money { return Money(amount: Int(self), currency: "EUR") }
+    var GBP: Money { return Money(amount: Int(self), currency: "GBP") }
+    var YEN: Money { return Money(amount: Int(self), currency: "YEN") }
 }
 
 ////////////////////////////////////
@@ -52,96 +52,97 @@ public struct Money {
         get { return "\(currency)\(amount).0" }
     }
     
-    init(amt: Int, currency: String){
-        self.amount = amt
+    init(amount: Int, currency: String){
+        self.amount = amount
         self.currency = currency
     }
     
-  public func convert(_ to: String) -> Money {
-    
-    if self.currency == currency{
-        return self
+    public func convert(_ to: String) -> Money {
+        
+        if self.currency == to{
+            return self
+        }
+        if (self.currency == "USD"){
+            
+            if to == "GBP"{
+                return Money(amount: Int(Double(self.amount) * 0.5), currency: "GBP")
+                
+            }
+                
+            else if to == "EUR"{
+                return Money(amount:self.amount*3/2,currency: "EUR")
+            }
+                
+            else if to == "CAN"{
+                return Money(amount:self.amount*5/4,currency:"CAN")
+            }
+            
+        }//self.currency is USD
+        
+        if (self.currency == "GBP"){
+            
+            if to == "USD"{
+                return Money(amount:self.amount*2, currency:"USD")
+            }
+                
+            else if to == "EUR"{
+                return Money(amount:self.amount*3, currency:"EUR")
+            }
+                
+            else if to == "CAN"{
+                return Money(amount:self.amount*5/2, currency:"CAN")
+            }
+            
+        }//self.currency is GBP
+        
+        if (self.currency == "EUR"){
+            
+            if to == "USD"{
+                return Money(amount:self.amount*2/3, currency:"USD")
+            }
+                
+            else if to == "GBP"{
+                return Money(amount:self.amount/3, currency:"GBP")
+            }
+                
+            else if to == "CAN"{
+                return Money(amount:self.amount*5/6, currency:"CAN")
+            }
+            
+        }//self.currency is EUR
+        
+        
+        if (self.currency == "CAN"){
+            
+            if to == "USD"{
+                return Money(amount:self.amount*4/5, currency:"USD")
+            }
+                
+            else if to == "GBP"{
+                return Money(amount:self.amount*2/5, currency:"GBP")
+            }
+                
+            else if to == "EUR"{
+                return Money(amount:self.amount*6/5, currency:"EUR")
+            }
+            
+        }//self.currency is CAN
+        
+        return Money(amount:0,currency:"USD")
+        
     }
-    if (self.currency == "USD"){
+    public func add(_ to: Money) -> Money {
         
-        if currency == "GBP"{
-            return Money(amt:self.amount/2, currency:"GBP")
-        }
-            
-        else if currency == "EUR"{
-            return Money(amt:self.amount*3/2,currency: "EUR")
-        }
-            
-        else if currency == "CAN"{
-            return Money(amt:self.amount*5/4,currency:"CAN")
-        }
+        return Money(amount: to.amount + self.convert(to.currency).amount, currency: to.currency)
         
-    }//self.currency is USD
-    
-    if (self.currency == "GBP"){
         
-        if currency == "USD"{
-            return Money(amt:self.amount*2, currency:"USD")
-        }
-            
-        else if currency == "EUR"{
-            return Money(amt:self.amount*3, currency:"EUR")
-        }
-            
-        else if currency == "CAN"{
-            return Money(amt:self.amount*5/2, currency:"CAN")
-        }
-        
-    }//self.currency is GBP
-    
-    if (self.currency == "EUR"){
-        
-        if currency == "USD"{
-            return Money(amt:self.amount*2/3, currency:"USD")
-        }
-            
-        else if currency == "GBP"{
-            return Money(amt:self.amount/3, currency:"GBP")
-        }
-            
-        else if currency == "CAN"{
-            return Money(amt:self.amount*5/6, currency:"CAN")
-        }
-        
-    }//self.currency is EUR
-    
-    
-    if (self.currency == "CAN"){
-        
-        if currency == "USD"{
-            return Money(amt:self.amount*4/5, currency:"USD")
-        }
-            
-        else if currency == "GBP"{
-            return Money(amt:self.amount*2/5, currency:"GBP")
-        }
-            
-        else if currency == "EUR"{
-            return Money(amt:self.amount*6/5, currency:"EUR")
-        }
-        
-    }//self.currency is CAN
-    
-    return Money(amt:0,currency:"USD")
-    
-  }
+    }
   
-  public func add(_ to: Money) -> Money {
-    
-    let added_value = self.amount+self.convert(self.currency).amount
-    return Money(amt: added_value, currency: self.currency)
-    
-  }
-  public func subtract(_ from: Money) -> Money {
-    let sub_value = self.amount-self.convert(self.currency).amount
-    return Money(amt: sub_value, currency: self.currency)
-    
-  }
+    public func subtract(_ from: Money) -> Money {
+        return Money(amount: from.amount - self.convert(from.currency).amount, currency: from.currency)
+        
+        
+    }
 }
 
 ////////////////////////////////////
